@@ -307,10 +307,12 @@ if (!esta_atacando && !dash_en_proceso && !is_bursting) {
 }
 
 // --- DAÑO & KNOCKBACK ---
+if invulnera != true {
 if (invul_timer > 0) invul_timer--;
 if (place_meeting(x, y, obj_enemy) && invul_timer <= 0) {
     vida -= dano_recibido;
     invul_timer = 1;
+	invulnera = true
     xspd += 8 * -image_xscale;
     yspd  = -10;
     shake_time      = 7;
@@ -318,14 +320,16 @@ if (place_meeting(x, y, obj_enemy) && invul_timer <= 0) {
 }
 if (invul_timer > 0) invul_timer--;
 if (place_meeting(x, y, obj_enemy_fisicas) && invul_timer <= 0) {
-    vida -= dano_recibido;
-    invul_timer = 1;
-    xspd += 8 * -image_xscale;
-    yspd  = -10;
+    vida -= (dano_recibido/4);
+	invulnera = true
+	alarm[0] = 30 // 3 segundos
+    invul_timer = 2;
+    xspd += 13 * -image_xscale;
+    yspd  = -13;
     shake_time      = 7;
     shake_intensity = 10;
 }
-
+}
 // --- FLASH FADE OUT ---
 if (flash_alpha > 0) {
     flash_alpha -= 0.1;
@@ -355,4 +359,4 @@ if (esta_atacando && keyboard_check_pressed(ord("J"))) {
     var b = instance_create_layer(x, y, "Instances", bullet);
     b._direccion = dir;
 }
-show_debug_message("br br patapiiim")
+show_debug_message("br br patapiiiiiiiiim")

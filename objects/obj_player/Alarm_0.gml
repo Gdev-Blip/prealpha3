@@ -1,1 +1,2 @@
-esperar_fisicas = false;
+
+invulnera = false;

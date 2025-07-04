@@ -71,7 +71,7 @@ super_cooldown     = 0;
 // --- INVULNERABILIDAD & DAÑO ---
 invul_timer        = 0;
 dano_recibido      = 10;
-
+invulnera = false;
 // --- CONTROL DE FRAME-ATTACK ---
 atk_frame_speed    = 0.15;                // sub-imágenes por step
 ataque_duracion    = 0.15;                // duración total del ataque en segundos
